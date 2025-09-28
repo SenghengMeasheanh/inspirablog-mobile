@@ -1,23 +1,30 @@
-import { PasswordInput, SocialMediaButton } from 'components'
-import { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Image } from 'expo-image'
-import { TextInput } from 'components'
-import { Button, H4, Paragraph, Separator, Text, XStack, YStack } from 'tamagui'
-import { useRouter } from 'expo-router'
+import { PasswordInput, SocialMediaButton, TextInput } from "components";
+import { Image } from "expo-image";
+import { useRouter } from "expo-router";
+import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Button,
+  H4,
+  Paragraph,
+  Separator,
+  Text,
+  XStack,
+  YStack,
+} from "tamagui";
 
 export default function SignIn() {
-  const [firstName, setFirstName] = useState('')
-  const router = useRouter()
+  const [firstName, setFirstName] = useState("");
+  const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <YStack flex={1} px="$4">
         <Image
-          source={require('../../assets/images/logo.png')}
+          source={require("../../assets/images/logo.png")}
           alt="logo"
           contentFit="contain"
-          style={{ width: 200, height: 80, alignSelf: 'center' }}
+          style={{ width: 200, height: 80, alignSelf: "center" }}
         />
         <YStack mt="$6" gap="$1">
           <H4 fontWeight="bold" fontFamily="$mono" text="center">
@@ -41,7 +48,12 @@ export default function SignIn() {
             placeholder="Password"
           />
         </YStack>
-        <Button.Text onPress={() => router.push('/auth/forgot-password')} mt="$3" color="$accent1" textDecorationLine='underline'>
+        <Button.Text
+          onPress={() => router.push("/auth/forgot-password")}
+          mt="$3"
+          color="$accent1"
+          textDecorationLine="underline"
+        >
           Forgot Password ?
         </Button.Text>
         <Button color="white" bg="$accent1" mt="$6" fontFamily="$mono">
@@ -59,7 +71,8 @@ export default function SignIn() {
           justify={"center"}
           cursor="pointer"
           gap={20}
-          mt="$4">
+          mt="$4"
+        >
           <SocialMediaButton
             provider="facebook"
             onPress={() => console.log("Facebook login")}
@@ -74,13 +87,17 @@ export default function SignIn() {
           />
         </XStack>
         <Paragraph fontFamily="$mono" fontSize="$2" mt="$4" alignSelf="center">
-          Don't have an account?{' '}
-          <Button.Text onPress={() => router.push('/auth/sign-up')} color="$accent1" fontSize="$2" textDecorationLine='underline'>
+          Don't have an account?{" "}
+          <Button.Text
+            onPress={() => router.push("/auth/sign-up")}
+            color="$accent1"
+            fontSize="$2"
+            textDecorationLine="underline"
+          >
             Sign Up
           </Button.Text>
         </Paragraph>
       </YStack>
     </SafeAreaView>
-  )
+  );
 }
-
